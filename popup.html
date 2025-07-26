@@ -2,25 +2,50 @@
 <html>
 <head>
   <title>PixelPal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <!-- We'll put the avatar image here later -->
-      <img id="avatar" src="icons/icon30.png" alt="PixelPal Avatar">
-      <h1 id="greeting">What's the plan?</h1>
+
+  <div id="pixelpal-container">
+
+    <!-- Screen 1: Naming the Pal -->
+    <div id="name-screen" class="view">
+      <img src="icons/avatar-idle.png" class="avatar">
+      <div class="content">
+        <p>Hey there! I'm your PixelPal. What would you like to call me?</p>
+        <input type="text" id="pal-name-input" class="pixel-input" placeholder="Type here">
+        <button id="save-name-button" class="pixel-button pink">Done & Next</button>
+      </div>
     </div>
-    <div id="intention-form">
-      <input type="text" id="intention-input" placeholder="e.g., Finish my report...">
-      <button id="save-button">Set Goal</button>
+
+    <!-- Screen 2: Setting the Daily Goal -->
+    <div id="goal-screen" class="view hidden">
+      <img src="icons/avatar-idle.png" class="avatar">
+      <div class="content">
+        <p id="goal-prompt">What's your plan for today?</p>
+        <input type="text" id="goal-input" class="pixel-input" placeholder="Type here">
+        <button id="save-goal-button" class="pixel-button pink">Set My Goal</button>
+        <button id="chill-mode-button" class="pixel-button blue">I'm here to chill</button>
+      </div>
     </div>
-    <div id="intention-display" class="hidden">
-      <p>Today's Goal:</p>
-      <strong id="todays-intention"></strong>
-      <button id="clear-button">New Goal</button>
+    
+    <!-- Screen 3: Main view when focused -->
+    <div id="status-screen" class="view hidden">
+      <img src="icons/avatar-happy.png" class="avatar">
+      <div class="content">
+        <p id="status-greeting"></p> 
+        <p>Today's Goal:</p>
+        <p id="goal-display" class="highlight"></p>
+        <!-- 👇 THIS IS THE NEW BUTTON 👇 -->
+        <button id="done-button" class="pixel-button blue">Done & Next</button>
+      </div>
     </div>
+
   </div>
+
   <script src="popup.js"></script>
 </body>
 </html>

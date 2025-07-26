@@ -4,21 +4,37 @@
   "version": "0.1.0",
   "description": "Your wholesome accountability coach to help you stay focused.",
   "permissions": [
-    "storage",         
-    "tabs",           
-    "notifications",  
-    "contextMenus"    
+    "storage",
+    "tabs",
+    "notifications",
+    "contextMenus"
   ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "30": "icons/icon30.png"
+      "16": "icons/icon30.png",
+      "48": "icons/icon30.png"
     }
   },
   "icons": {
-    "30": "icons/icon30.png"
+    "16": "icons/icon30.png",
+    "48": "icons/icon30.png",
+    "128": "icons/icon30.png"
   },
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/avatar-idle.png",
+        "icons/avatar-sad.png",
+        "icons/avatar-blush.png",
+        "icons/avatar-happy.png",
+        "icons/avatar-coffee.png",
+        "icons/avatar-distracted.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

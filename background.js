@@ -1,36 +1,35 @@
-// A list of distracting websites. You can add more!
-const DISTRACTION_SITES = [
+// A default list of distracting websites.
+// We'll store the user's list in chrome.storage later.
+const DEFAULT_DISTRACTION_SITES = [
   "twitter.com",
   "facebook.com",
   "instagram.com",
   "youtube.com",
-  "reddit.com"
+  "reddit.com",
+  "tiktok.com",
+  "pinterest.com"
 ];
 
 // This function creates the right-click "Vibe Check" menu item.
-// It runs once, when the extension is first installed.
 chrome.runtime.onInstalled.addListener(() => {
+  // Set default values on installation
+  chrome.storage.local.set({
+    blockedSites: DEFAULT_DISTRACTION_SITES,
+    focusState: 'chill' // Start in 'chill' mode
+  });
+
   chrome.contextMenus.create({
     id: "vibeCheck",
     title: "Check the vibe with PixelPal ✨",
-    contexts: ["selection"] // This makes it appear only when text is highlighted
+    contexts: ["selection"]
   });
 });
 
-// This function listens for a click on the menu item we just created.
+// Listener for the "Vibe Check"
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "vibeCheck" && info.selectionText) {
-    // This is where Teammate B's work will start.
-    // For now, we'll just log the selected text to the console.
     console.log("Selected text for vibe check:", info.selectionText);
-
-    // You could also show a simple notification.
-    chrome.notifications.create({
-        type: 'basic',
-        iconUrl: 'icons/icon30.png',
-        title: 'Vibe Check!',
-        message: 'Sending this text to the vibe machine...'
-    });
+    // This is where Teammate B's API call will be triggered.
   }
 });
 
@@ -38,17 +37,23 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // We only care when the URL changes.
   if (changeInfo.url) {
-    // Check if the new URL is in our distraction list.
-    const isDistraction = DISTRACTION_SITES.some(site => changeInfo.url.includes(site));
+    // Get the current state from storage
+    chrome.storage.local.get(['focusState', 'palName', 'blockedSites'], (data) => {
+      // ONLY check for distractions if the user is in 'focus' mode.
+      if (data.focusState === 'focus') {
+        const isDistraction = data.blockedSites.some(site => changeInfo.url.includes(site));
 
-    if (isDistraction) {
-      // If it is, send a notification!
-      chrome.notifications.create({
-        type: 'basic',
-        iconUrl: 'icons/icon30.png',
-        title: 'A Wild Distraction Appeared!',
-        message: "Hey! Didn't you say you had a goal? Just a friendly nudge! 😉"
-      });
-    }
+        if (isDistraction) {
+          const palName = data.palName || "PixelPal"; // Use default name if not set
+          // If it is, send a notification!
+          chrome.notifications.create({
+            type: 'basic',
+            iconUrl: 'icons/avatar-sad.png', 
+            title: 'Hey! A little distracted?',
+            message: `${palName} says: Girl, looks like you're getting distracted. Let's lock in!`
+          });
+        }
+      }
+    });
   }
 });

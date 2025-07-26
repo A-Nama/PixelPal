@@ -1,58 +1,76 @@
+/* Apply the pixel font to everything */
 body {
-  font-family: 'Courier New', Courier, monospace;
-  width: 300px;
-  background-color: #f0f4f8;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: #000;
 }
 
-.container {
-  padding: 15px;
+#pixelpal-container {
+  background-color: #fff0a4; /* Light yellow background */
+  border: 3px solid #000;
+  width: 380px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: contain; /* Prevents stretching */
+  align-self: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between text and buttons */
+  width: 100%;
+}
+
+.content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pixel-input, .pixel-button {
+  border: 3px solid #000;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
   text-align: center;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-#avatar {
-  width: 48px;
-  height: 48px;
-}
-
-h1 {
-  font-size: 18px;
-  color: #333;
-}
-
-input[type="text"] {
-  width: 90%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 8px 15px;
-  border: none;
-  background-color: #4a90e2;
-  color: white;
-  border-radius: 4px;
+.pixel-button {
   cursor: pointer;
-  font-weight: bold;
 }
 
-button:hover {
-  background-color: #357abd;
+.pixel-button.blue {
+  background-color: #88bef5; /* Light blue */
 }
 
-#intention-display {
-  margin-top: 15px;
+.pixel-button.pink {
+  background-color: #f16896; /* Pink */
 }
 
+.pixel-input {
+  background-color: #88bef5;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.pixel-input::placeholder {
+  color: #444;
+}
+
+.highlight {
+  background-color: #fff;
+  padding: 10px;
+  border: 3px solid #000;
+  text-align: center;
+}
+
+/* Utility class to hide/show screens */
 .hidden {
-  display: none;
+  display: none !important;
 }
