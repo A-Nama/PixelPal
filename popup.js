@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameScreen = document.getElementById('name-screen');
   const goalScreen = document.getElementById('goal-screen');
   const statusScreen = document.getElementById('status-screen');
-  const vibeCheckScreen = document.getElementById('vibe-check-screen'); 
-  const breakScreen = document.getElementById('break-screen'); 
+  const vibeCheckScreen = document.getElementById('vibe-check-screen');
 
   // All other elements
   const palNameInput = document.getElementById('pal-name-input');
@@ -13,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveGoalButton = document.getElementById('save-goal-button');
   const chillModeButton = document.getElementById('chill-mode-button');
   const doneButton = document.getElementById('done-button');
-  const rewriteButton = document.getElementById('rewrite-button'); 
-  const vibeOkButton = document.getElementById('vibe-ok-button'); 
+  const rewriteButton = document.getElementById('rewrite-button');
+  const vibeOkButton = document.getElementById('vibe-ok-button');
   const goalPrompt = document.getElementById('goal-prompt');
   const goalDisplay = document.getElementById('goal-display');
   const statusGreeting = document.getElementById('status-greeting');
-  const vibeTextDisplay = document.getElementById('vibe-text-display'); 
+  const vibeTextDisplay = document.getElementById('vibe-text-display');
 
   const showView = (viewToShow) => {
     document.querySelectorAll('.view').forEach(view => view.classList.add('hidden'));
@@ -76,31 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-  
+
   chillModeButton.addEventListener('click', () => {
-      // This will trigger the alarm to be cleared
-      chrome.storage.local.set({ focusState: 'chill', dailyGoal: null }, () => {
-          window.close();
-      });
+    // This will trigger the alarm to be cleared
+    chrome.storage.local.set({ focusState: 'chill', dailyGoal: null }, () => {
+      window.close();
+    });
   });
 
   doneButton.addEventListener('click', () => {
-      // This will also trigger the alarm to be cleared
-      chrome.storage.local.set({ dailyGoal: null, focusState: 'chill' }, () => {
-          goalInput.value = '';
-          showView(goalScreen);
-      });
+    // This will also trigger the alarm to be cleared
+    chrome.storage.local.set({ dailyGoal: null, focusState: 'chill' }, () => {
+      goalInput.value = '';
+      showView(goalScreen);
+    });
   });
 
-  // NEW: Vibe Check Button Listeners
   rewriteButton.addEventListener('click', () => {
-      // This is where Teammate B's magic will happen!
-      // For now, it just closes the popup.
-      alert("This is where the AI rewrite suggestions will appear!");
-      window.close();
+    // This is where Teammate B's magic will happen!
+    alert("This is where the AI rewrite suggestions will appear!");
+    window.close();
   });
 
   vibeOkButton.addEventListener('click', () => {
-      window.close();
+    window.close();
   });
 });

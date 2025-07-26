@@ -8,7 +8,7 @@
     "tabs",
     "notifications",
     "contextMenus",
-    "alarms" 
+    "alarms"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -32,10 +32,11 @@
         "icons/avatar-sad.png",
         "icons/avatar-blush.png",
         "icons/avatar-happy.png",
-        "icons/avatar-coffee.png",
-        "icons/avatar-distracted.png"
+        "icons/avatar-coffee.png"
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }
