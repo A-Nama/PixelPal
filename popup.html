@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PixelPal</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <!-- We'll put the avatar image here later -->
+      <img id="avatar" src="icons/icon30.png" alt="PixelPal Avatar">
+      <h1 id="greeting">What's the plan?</h1>
+    </div>
+    <div id="intention-form">
+      <input type="text" id="intention-input" placeholder="e.g., Finish my report...">
+      <button id="save-button">Set Goal</button>
+    </div>
+    <div id="intention-display" class="hidden">
+      <p>Today's Goal:</p>
+      <strong id="todays-intention"></strong>
+      <button id="clear-button">New Goal</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

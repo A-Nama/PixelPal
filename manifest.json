@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "PixelPal",
+  "version": "0.1.0",
+  "description": "Your wholesome accountability coach to help you stay focused.",
+  "permissions": [
+    "storage",         
+    "tabs",           
+    "notifications",  
+    "contextMenus"    
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "30": "icons/icon30.png"
+    }
+  },
+  "icons": {
+    "30": "icons/icon30.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
