@@ -6,18 +6,18 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 
 ## ✨ Features
 
-- 🧠 Vibe Check: Select any text and get its tone analyzed + rewritten suggestions (professional, friendly, concise).
-- 👀 Distraction Detection: Detects when you're on time-wasting sites and nudges you.
-- 📅 Daily Check-ins: Quick morning/night prompts to reflect and stay aligned with your goals.
-- 🪄 Context Menu AI: Right-click on text to get helpful emotional insight or edits.
-- 📊 Backend with Gemini API: FastAPI server handles tone analysis and rewrites using Google's Gemini models.
-- 🧩 Extremely Cute UI: A pixel avatar you'll actually want to listen to.
+- Vibe Check: Select any text and get its tone analyzed + rewritten suggestions (professional, friendly, concise).
+- Distraction Detection: Detects when you're on time-wasting sites and nudges you.
+- Daily Check-ins: Quick morning/night prompts to reflect and stay aligned with your goals.
+- Context Menu AI: Right-click on text to get helpful emotional insight or edits.
+- Backend with Gemini API: FastAPI server handles tone analysis and rewrites using Google's Gemini models.
+- Extremely Cute UI: A pixel avatar you'll actually want to listen to.
 
 ---
 
-## 🧪 How to Run the Project
+## How to Run the Project
 
-### ⚙️ Backend Setup
+### Backend Setup
 
 1. Clone the repository and navigate to the backend folder.
 2. Install the dependencies using `pip install -r requirements.txt`.
@@ -29,7 +29,7 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 
 ---
 
-### 💻 Frontend (Chrome Extension)
+### Frontend (Chrome Extension)
 
 1. Navigate to the `extension` folder inside the project.
 2. Open Chrome and go to `chrome://extensions`.
@@ -42,7 +42,6 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 ## 📸 Screenshots
 
 ![UI](assets/pixel-ui.png) 
-![Vibe Check](assets/vibe-result.png) 
 
 ---
 
