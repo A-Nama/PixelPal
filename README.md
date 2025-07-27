@@ -31,10 +31,10 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 
 ### Frontend (Chrome Extension)
 
-1. Navigate to the `extension` folder inside the project.
+1. Navigate to the `frontend` folder of the project.
 2. Open Chrome and go to `chrome://extensions`.
 3. Enable Developer Mode using the toggle on the top right.
-4. Click "Load unpacked" and select the `extension` folder.
+4. Click "Load unpacked" and select the `frontend` folder.
 5. Make sure the backend server is running to enable vibe check and other AI features.
 
 ---
