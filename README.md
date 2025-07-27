@@ -41,14 +41,13 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 
 ## 📸 Screenshots
 
-![UI![Uploading WhatsApp Image 2025-07-27 at 19.54.37.jpeg…]()]
-![WhatsApp Image 2025-07-27 at 19 55 19](https://github.com/user-attachments/assets/2c46f10e-9370-459c-b373-a213b88a9cfa)()]
-
+![PixelPal UI](https://github.com/user-attachments/assets/2c46f10e-9370-459c-b373-a213b88a9cfa)
+![Character](https://github.com/user-attachments/assets/023d6308-6c52-4fac-a298-40e0a6048854)
 ---
 
 ## 🎥 Demo Video
 
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Watch the demo](https://youtu.be/dIc9DIMrTls)
 
 ---
 
