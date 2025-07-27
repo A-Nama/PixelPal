@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function handleVibeAnalysis() {
     showView(loadingScreen);
     try {
-      const response = await fetch('http://127.0.0.1:8000/vibe-analysis', {
+      // --- FIXED: Added the /vibe-analysis endpoint to the URL ---
+      const response = await fetch('https://pixelpal-test.onrender.com/vibe-analysis', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: textToCheck }),
@@ -87,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function handleVibeRewrite() {
     showView(loadingScreen);
     try {
-      const response = await fetch('http://127.0.0.1:8000/vibe-rewrite', {
+      // --- FIXED: Added the /vibe-rewrite endpoint to the URL ---
+      const response = await fetch('https://pixelpal-test.onrender.com/vibe-rewrite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: textToCheck }),
