@@ -11,7 +11,7 @@
 
   <div id="pixelpal-container">
 
-    <!-- Screen 1: Naming the Pal -->
+    <!-- Normal Flow Screens -->
     <div id="name-screen" class="view">
       <img src="icons/avatar-idle.png" class="avatar">
       <div class="content">
@@ -21,7 +21,6 @@
       </div>
     </div>
 
-    <!-- Screen 2: Setting the Daily Goal -->
     <div id="goal-screen" class="view hidden">
       <img src="icons/avatar-idle.png" class="avatar">
       <div class="content">
@@ -32,7 +31,6 @@
       </div>
     </div>
     
-    <!-- Screen 3: Main view when focused -->
     <div id="status-screen" class="view hidden">
       <img src="icons/avatar-happy.png" class="avatar">
       <div class="content">
@@ -43,19 +41,33 @@
       </div>
     </div>
 
-    <!-- Screen 4: Vibe Check -->
-    <div id="vibe-check-screen" class="view hidden">
+    <!-- Vibe Check Flow Screens -->
+    <div id="loading-screen" class="view hidden">
+        <img src="icons/avatar-idle.png" class="avatar avatar-spin">
+        <div class="content"><p>Checking the vibes...</p></div>
+    </div>
+
+    <div id="analysis-screen" class="view hidden">
         <img src="icons/avatar-blush.png" class="avatar">
         <div class="content">
-          <p>The vibes are giving all over the place.</p>
-          <p id="vibe-text-display" class="highlight"></p>
+          <p>Vibe is: <strong id="vibe-display"></strong></p>
+          <p id="analysis-display" class="highlight"></p>
           <button id="rewrite-button" class="pixel-button blue">Help me rewrite</button>
-          <button id="vibe-ok-button" class="pixel-button pink">That's what I was going for</button>
+          <button id="analysis-ok-button" class="pixel-button pink">That's what I was going for</button>
+        </div>
+    </div>
+
+    <div id="results-screen" class="view hidden">
+        <img src="icons/avatar-happy.png" class="avatar">
+        <div class="content">
+          <p>Here are some new vibes:</p>
+          <div id="suggestions-container"></div>
+          <button id="results-done-button" class="pixel-button blue">Thanks!</button>
         </div>
     </div>
 
   </div>
-
+  
   <script src="popup.js"></script>
 </body>
 </html>

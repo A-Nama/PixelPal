@@ -1,12 +1,12 @@
-/* Apply the pixel font to everything */
 body {
   font-family: 'Press Start 2P', cursive;
   font-size: 14px;
   color: #000;
+  background-color: #fff0a4; 
 }
 
 #pixelpal-container {
-  background-color: #fff0a4; /* Light yellow background */
+  background-color: #fff0a4; 
   border: 3px solid #000;
   width: 380px;
   padding: 20px;
@@ -17,14 +17,14 @@ body {
 .avatar {
   width: 96px;
   height: 96px;
-  object-fit: contain; /* Prevents stretching */
+  object-fit: contain; 
   align-self: center;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Space between text and buttons */
+  gap: 15px; 
   width: 100%;
 }
 
@@ -46,11 +46,11 @@ body {
 }
 
 .pixel-button.blue {
-  background-color: #88bef5; /* Light blue */
+  background-color: #88bef5; 
 }
 
 .pixel-button.pink {
-  background-color: #f16896; /* Pink */
+  background-color: #f16896; 
 }
 
 .pixel-input {
@@ -67,10 +67,48 @@ body {
   background-color: #fff;
   padding: 10px;
   border: 3px solid #000;
-  text-align: center;
+  text-align: left; 
 }
 
-/* Utility class to hide/show screens */
 .hidden {
   display: none !important;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.avatar-spin {
+  animation: spin 2s linear infinite;
+}
+
+/* --- Styles for Vibe Check Results --- */
+.suggestion-wrapper {
+  position: relative; 
+  padding-right: 45px; 
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: 1px solid transparent; 
+  cursor: pointer;
+  padding: 5px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; 
+}
+
+.copy-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.copy-button svg {
+  width: 16px;
+  height: 16px;
+  stroke: #333; 
+  stroke-width: 2.5; 
 }
