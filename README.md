@@ -52,3 +52,5 @@ PixelPal is a Chrome extension + AI-powered backend that helps you stay intentio
 ---
 
 With love, **Team barbie.dev**
+
+// Go to the branches frontend and backend to see respective code
