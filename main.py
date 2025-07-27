@@ -1,23 +1,24 @@
 import os
 import json
 import httpx
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 
-# Load environment variables from a .env file
+# Load environment variables from a .env file for local development
 load_dotenv()
 
 app = FastAPI()
 
 # --- Add CORS Middleware ---
-# This allows your Chrome extension to communicate with this backend.
+# This allows your Chrome extension (or any web frontend) to communicate with this backend.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["*"],  # Allows all origins, you can restrict this to your extension's ID or domain
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allows all headers
 )
 
@@ -26,11 +27,11 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 class VibeCheckRequest(BaseModel):
     text: str
 
-# --- NEW: Endpoint for the initial analysis ONLY ---
+# --- Endpoint for the initial analysis ONLY ---
 @app.post("/vibe-analysis")
 async def vibe_analysis(data: VibeCheckRequest):
     if not GEMINI_API_KEY:
-        return {"error": "GEMINI_API_KEY not found. Please set it in your .env file."}
+        return {"error": "GEMINI_API_KEY not found. Please set it in your environment."}
 
     prompt = f"""
 You are PixelPal, an emotionally intelligent, super-savvy Gen Z best friend. 
@@ -82,11 +83,11 @@ Here's the text: "{data.text}"
         return {"error": "An unexpected error occurred", "details": str(e)}
 
 
-# --- NEW: Endpoint for getting the rewrites ONLY ---
+# --- Endpoint for getting the rewrites ONLY ---
 @app.post("/vibe-rewrite")
 async def vibe_rewrite(data: VibeCheckRequest):
     if not GEMINI_API_KEY:
-        return {"error": "GEMINI_API_KEY not found. Please set it in your .env file."}
+        return {"error": "GEMINI_API_KEY not found. Please set it in your environment."}
 
     prompt = f"""
 You are PixelPal, an emotionally intelligent writing assistant.
@@ -141,3 +142,11 @@ Here's the text: "{data.text}"
         return {"error": "Failed to parse the Gemini AI response", "details": str(e)}
     except Exception as e:
         return {"error": "An unexpected error occurred", "details": str(e)}
+
+# --- This block allows you to run the app locally for testing ---
+# It's a standard practice for Python web applications.
+if __name__ == "__main__":
+    # Use the PORT environment variable if it's available, otherwise default to 8000
+    port = int(os.environ.get("PORT", 8000))
+    # For local testing, we run on 127.0.0.1. Render will use the --host 0.0.0.0 from the start command.
+    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)
